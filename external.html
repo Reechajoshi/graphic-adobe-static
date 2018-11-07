@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.6000.16544" name=GENERATOR>
+<link href="fontstyle.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+body {
+	background-color: #0A2B4A;
+}
+-->
+</style></HEAD>
+<BODY>
+<DIV id=datacontainer onmouseover=scrollspeed=0 
+style="LEFT: 1px; WIDTH: 100%; POSITION: absolute; TOP: 10px" 
+onmouseout=scrollspeed=cache><!-- ADD YOUR SCROLLER CONTENT INSIDE HERE -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="6%">&nbsp;</td>
+      <td width="94%" class="rh">Kingfisher  First</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Pixion</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">ZOOM  Television</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Bacardi</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Baweja  Movies</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Epigram  Advertising</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Movietalkies.com</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Sony  Pictures International</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Sony  Home Entertainment</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Vaibhavi  Merchant (Choreographer)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="rh">Tommy  Hilfiger</td>
+    </tr>
+  </table>
+<!-- END SCROLLER CONTENT --></DIV>
+<SCRIPT type=text/javascript>
+
+
+
+//Specify speed of scroll. Larger=faster (ie: 5)
+var scrollspeed=cache=1
+
+//Specify intial delay before scroller starts scrolling (in miliseconds):
+var initialdelay=500
+
+function initializeScroller(){
+dataobj=document.all? document.all.datacontainer : document.getElementById("datacontainer")
+dataobj.style.top="5px"
+setTimeout("getdataheight()", initialdelay)
+}
+
+function getdataheight(){
+thelength=dataobj.offsetHeight
+if (thelength==0)
+setTimeout("getdataheight()",10)
+else
+scrollDiv()
+}
+
+function scrollDiv(){
+dataobj.style.top=parseInt(dataobj.style.top)-scrollspeed+"px"
+if (parseInt(dataobj.style.top)<thelength*(-1))
+dataobj.style.top="5px"
+setTimeout("scrollDiv()",40)
+}
+
+if (window.addEventListener)
+window.addEventListener("load", initializeScroller, false)
+else if (window.attachEvent)
+window.attachEvent("onload", initializeScroller)
+else
+window.onload=initializeScroller
+
+</SCRIPT>
+</BODY></HTML>

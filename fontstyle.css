@@ -1,0 +1,146 @@
+.dot-divider {
+	background-image: url(images/dot-divider.gif);
+	background-repeat: repeat-x;
+	background-position: left center;
+}
+
+
+
+.rh_b {
+	line-height:18px;
+	COLOR:#FFFFFF;
+	font-weight: ;
+	text-decoration: smooth;
+	line-height:24px;
+	font-family:Trebuchet MS;
+	font-size: 13px; 
+}
+
+.rh_b_1 {
+	line-height:18px;
+	COLOR:#FFFFFF;
+	line-height:24px;
+	font-family:Trebuchet MS;
+	font-size: 11px; 
+}
+
+.rh_c {
+	line-height:18px;
+	COLOR:#94cbfa;
+	font-weight: ;
+	text-decoration: smooth;
+	
+	font-family:Trebuchet MS;
+	font-size: 11px; 
+}
+
+.rh_w {
+	line-height:18px;
+	COLOR:#ffffff;
+	font-weight: ;
+	text-decoration: smooth;
+    font-family:Trebuchet MS;
+	font-size: 11px; 
+}
+
+.rh_d {
+	line-height:18px;
+	COLOR:#005bb1;
+	font-weight: ;
+	text-decoration: smooth;
+	line-height:20px;
+	font-family:Trebuchet MS;
+	font-size: 9px; 
+}
+
+.rh_e {
+	line-height:18px;
+	COLOR:#005bb1;
+	font-weight: ;
+	text-decoration: smooth;
+	line-height:8px;
+	font-family:Trebuchet MS;
+	font-size: 9px; 
+}
+
+.rh {
+	line-height:18px;
+	COLOR:#9ad0ff;
+	font-weight: ;
+	text-decoration: none;
+	line-height:20px;
+	font-family:Trebuchet MS;
+	font-size: 12px; 
+}
+
+.rh_1 {
+	line-height:18px;
+	COLOR:#FFFFFF;
+	font-weight: bolder;
+	text-decoration: smooth;
+	line-height:20px;
+	font-family:Trebuchet MS;
+	font-size: 13px; 
+}
+
+.rh_middle {
+	line-height:18px;
+	COLOR:#40a1f5;
+	font-weight: bolder;
+	text-decoration: smooth;
+	line-height:20px;
+	font-family:Trebuchet MS;
+	font-size: 13px; 
+}
+
+.rh_1_c {
+	line-height:18px;
+	COLOR:#0070db;
+	font-weight: bolder;
+	text-decoration: smooth;
+	line-height:20px;
+	font-family:Trebuchet MS;
+	font-size: 13px; 
+}
+
+.rh_2 {
+	line-height:18px;
+	COLOR:#000000;
+	font-weight:bolder ;
+	text-decoration: smooth;
+	font-family:Zurich BT;
+	font-size: 11px; 
+}
+
+.rh_3 {
+	line-height:18px;
+	COLOR:#a41c2b;
+	font-weight:bolder ;
+	text-decoration: smooth;
+	font-family:Zurich CN BT;
+	font-size: 11px; 
+}
+
+.heading_1 {
+	line-height:6px;
+	COLOR:#c4383f;
+	font-weight:bolder ;
+	text-decoration: smooth;
+	font-family:Zurich CN BT;
+	font-size: 18px; 
+}
+
+
+b:hover {
+	COLOR:#904102;  
+     
+}
+.mn {
+	text-decoration: none;
+	line-height:12px;
+	COLOR:#666666;
+	font:normal 9px Verdana; 
+	
+}
+
+</style>

@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+
+html, body{
+scrollbar-face-color:#004161;
+scrollbar-base-color:#065f8b;
+scrollbar-arrow-color:black;
+scrollbar-track-color:#0A2B4A;
+scrollbar-shadow-color:#065f8b;
+scrollbar-highlight-color:#01324a;
+scrollbar-3dlight-color:#01324a;
+scrollbar-darkshadow-Color:#065f8b;
+
+}
+
+</style>
+<link href="fontstyle.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+body {
+	background-color: #0A2B4A;
+}
+-->
+</style>
+
+<?php 
+	include('admin/conf/vars.php');
+	include('admin/php/class.helper.php');
+	
+	$hlp = new CHelp();
+?>
+
+</head>
+
+<body>
+	<?php 
+		if( isset( $_GET['i'] ) )
+		{
+			$cid = $_GET['i'];
+			if( isset( $_GET['dt'] ) )
+			{
+				$res = $hlp->_db->db_query( "select cname,cdesc from category where cid='$cid';" );
+				if( $res )
+				{
+					$row = $hlp->_db->db_get( $res );
+					
+					$cdesc = $row['cdesc'];
+					$cname = $row['cname'];
+					
+					echo( "<div style='text-align:right' class=rh ><div style='float:left;' class=rh ><strong>$cname</strong></div><div><a style='text-decorationnone' class=rh href='frame_gallery.html?i=$cid'>Back</a></div></div><div>$cdesc</div><div style='text-align:right' class=rh ><a style='text-decorationnone' class=rh href='frame_gallery.html?i=$cid'>Back</a></div>" );
+				}	
+			}
+			else
+			{
+				$res = $hlp->_db->db_query( "select c.cname cname,ci.iid iid,Length(c.cdesc) desclen from category c,catimages ci where c.cid=ci.cid and c.cid='$cid';" );
+				
+				if( $res )
+				{
+					if( $hlp->_db->db_num_rows( $res ) > 0 )
+					{
+						$cname = false;
+						$str = '<table>';
+						$cnt = 1;
+						$rowcnt = 1;
+						$desclen = false;
+						while( ( $row = $hlp->_db->db_get( $res ) ) !== false )
+						{
+							if( $cnt > 3 )
+								$cnt = 1;
+							if( $cnt === 1 )
+								$str .= '<tr>';
+							$cname = $row['cname'];
+							$iid = $row['iid'];
+							$iuri = $IMG_URL.base64_encode( $iid );
+							$thumb_uri = $iuri.'&tnqx';
+							$desclen = intval( $row['desclen'] );
+							
+							if( $rowcnt++ === 1 )
+							{
+								if( $desclen > 0 )
+									$str .= "<tr><td colspan=3 ><div class='rh' style='float:left;'><b>$cname</b></div><div class='rh' style='text-align:right;'><a href='frame_gallery.html?i=$cid&dt' style='text-decorationnone' class=rh >Detail</a> &#160; | &#160; <a style='text-decorationnone' class=rh href='frame_gallery.html'>Back</a></div></tr>";
+								else
+									$str .= "<tr><td colspan=3 ><div class='rh' style='float:left;'><b>$cname</b></div><div class='rh' style='text-align:right;'><a style='text-decorationnone' class=rh href='frame_gallery.html'>Back</a></div></tr>";
+							}
+							
+							$str .= '<td width="33%" align="center" valign="middle" ><img style="cursor:hand;cursor:pointer;" src="'.$thumb_uri.'" onClick="window.open(\''.$iuri.'\',\''.$cname.'\');" ></td>';
+							
+							if( $cnt === 3 )
+								$str .= '</tr><tr><td height="10" colspan="3" align="center" valign="middle"></td></tr>';
+							$cnt++;	
+						}
+						
+						if( $desclen > 0 )
+						{
+							$str .= "<tr><td></td><td/><td style='text-align:right;'><div class='rh'><a href='frame_gallery.html?i=$cid&dt' style='text-decorationnone' class=rh >Detail</a> &#160; | &#160; <a href='frame_gallery.html' style='text-decorationnone' class=rh >Back</a></div></td></tr>";	
+						}
+						else
+						{
+							$str .= "<tr><td></td><td/><td style='text-align:right;'><div class='rh'><a href='frame_gallery.html' style='text-decorationnone' class=rh >Back</a></div></td></tr>";	
+						}
+						
+						$str .= '</table>';
+					}
+					
+					echo( $str );	
+				}
+			}	
+		}	
+		else
+			echo( $hlp->getAllGalleries() ); 
+	?>
+</body>
+</html>
